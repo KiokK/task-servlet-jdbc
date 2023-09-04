@@ -7,6 +7,7 @@
   - [Project Property](#Property)
   - [PostgreSQL](#StartupPostgreSQL)
   - [Tomcat 10.1.12](#StartupTomcat)
+  - [Enter data](#Enterdata)
 - **[Patterns](#Patterns)**
 - **[CRUD](#CRUD)** 
 - **[Receipt Writers](#writers)**
@@ -45,13 +46,29 @@ Location of pdf and txt docs:
 - ~\Libs\apache-tomcat-10.1.12\bin\statement-money\
 - ~\Libs\apache-tomcat-10.1.12\bin\check\
 
+Java app on tomcat server saving files on server instead of path because of 2 reasons:
+
+1. security, the user your are using to start tomcat service not have access outside Catalina/localhost so you can not create files out side folder have privileges on, and it is not recommended to run tomcat service with root "if it is possible"
+2. OS is different, if you are hosting your application on linux so you do not have c: drive at all
+
+### <a id="Enterdata"></a> Enter data
+ Enter page:
+ - admin: (username: admin, password: admin) 
+   - select tables and click 'find all'
+   - click 'find by id' to chose data for update
+   - make update and create queries (use 'find by id' earlier)
+ - user: 
+   - (username: user, password: user, accountId: 3)
+   - (username: user, password: accountId: 4)
+   - (username: user, password: accountId: 5)
+
 ##  <a id="Patterns"></a> Patterns
 - [Receipt Factory](src/main/java/ru/clevertec/cleverbank/factory/ReceiptFactory.java) for bank receipt creation
 - [Component Factory](src/main/java/ru/clevertec/cleverbank/configs/container/ComponentFactory.java) for 'component' creation (services, factories)
 - [Command](src/main/java/ru/clevertec/cleverbank/command/Command.java) for execute http requests
 
 ##  <a id="CRUD"></a> CRUD
-You should has admin role (username: admin, password: admin)
+You should have admin role
 - **[service layer](src/main/java/ru/clevertec/cleverbank/service/)**
 - **[dao layer](src/main/java/ru/clevertec/cleverbank/dao/)**
 - **[connection pool](src/main/java/ru/clevertec/cleverbank/configs/connection/DataSource.java)**
