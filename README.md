@@ -48,8 +48,8 @@ Location of pdf and txt docs:
 
 Java app on tomcat server saving files on server instead of path because of 2 reasons:
 
-1. security, the user your are using to start tomcat service not have access outside Catalina/localhost so you can not create files out side folder have privileges on, and it is not recommended to run tomcat service with root "if it is possible"
-2. OS is different, if you are hosting your application on linux so you do not have c: drive at all
+1. security, the user your are using to start tomcat service not have access outside 'c:' drive or user/localhost so you can not create files out side folder have privileges on, and it is not recommended to run tomcat service with root "if it is possible"
+2. OS is different, if someone are hosting application on linux, he does not have 'c:' drive or user/localhost
 
 ### <a id="Enterdata"></a> Enter data
  Enter page:
